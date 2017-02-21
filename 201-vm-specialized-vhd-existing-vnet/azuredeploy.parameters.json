@@ -27,6 +27,9 @@
         },
         "vmSize": {
             "value": "Standard_DS1"
+        },
+        "Availavility Set": {
+            "value": "Availavility SetName"
         }
     }
 }
