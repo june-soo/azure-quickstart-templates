@@ -156,7 +156,7 @@
       }
     }
   } , {
-            "name": "[parameters('AvailavilitySetName')]",
+            "name": "[parameters('Availavility SetName')]",
             "type": "Microsoft.Compute/availabilitySets",
             "location": "[resourceGroup().location]",
             "apiVersion": "2015-06-15",
