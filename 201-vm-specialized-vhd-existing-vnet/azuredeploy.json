@@ -53,6 +53,12 @@
       "metadata": {
         "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
       }
+    },
+    "Availavility SetName": {
+      "type": "string",
+      "metadata": {
+        "description": "Availavility Set Name."
+      }
     }
   },
   "variables": {
@@ -149,7 +155,20 @@
           "enabled": "true",
           "storageUri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('diagStorageAccountName')), '2016-01-01').primaryEndpoints.blob)]"
         }
-      }
-    }
-  }]
+      },
+      {
+            "name": "[parameters('AvailavilitySetName')]",
+            "type": "Microsoft.Compute/availabilitySets",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2015-06-15",
+            "dependsOn": [],
+            "tags": {
+                "displayName": "Availavility Set"
+            },
+            "properties": {
+                "platformUpdateDomainCount": 1,
+                "platformFaultDomainCount": 1
+            }
+        }
+    ]
 }
